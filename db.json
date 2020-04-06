@@ -1,0 +1,136 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Alienware Curved 34 Inch Monitor",
+      "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/71NJAl4Jz0L._AC_SL1500_.jpg",
+      "price": 972.77,
+      "category": 1
+    },
+    {
+      "id": 2,
+      "name": "Apple Watch Series 5",
+      "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/71wu%2BHMAKBL._AC_SL1500_.jpg",
+      "price": 493,
+      "category": 1
+    },
+    {
+      "id": 3,
+      "name": "Apple MQD32LL/A MacBook Air",
+      "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/51-oeeCf1zL._AC_SL1024_.jpg",
+      "price": 1000,
+      "category": 1
+    },
+    {
+      "id": 4,
+      "name": "Apple iPad Pro (11-inch, Wi-Fi, 256GB)",
+      "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/815ztYEEwYL._AC_SX522_.jpg",
+      "price": 849,
+      "category": 1
+    },
+    {
+      "id": 5,
+      "name": "Apple iPhone X, 64GB",
+      "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/81yZOQEC%2BNL._AC_SL1500_.jpg",
+      "price": 430,
+      "category": 1
+    },
+    {
+      "id": 6,
+      "name": "ASUS ROG STRIX GeForce RTX 2080TI",
+      "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/91Qg5K-cmfL._AC_SL1500_.jpg",
+      "price": 1126.46,
+      "category": 1
+    },
+    {
+      "id": 7,
+      "name": "Intel Core i5-9400F",
+      "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/71709S6VMTL._AC_SL1500_.jpg",
+      "price": 264.98,
+      "category": 1
+    },
+    {
+      "id": 8,
+      "name": "Crazy Dog T-Shirts Im Why We Cant Have Nice Things Funny Mocking Unisex Pull Over Hoodie",
+      "imgUrl": "https://m.media-amazon.com/images/I/61A5spqds4L._AC_UL480_FMwebp_QL65_.jpg",
+      "price": 17,
+      "category": 2
+    },
+    {
+      "id": 9,
+      "name": "Crazy Dog T-Shirts Nevertheless She Persisted Funny Political Congress Senate Sweatshirt Unisex Hoodie",
+      "imgUrl": "https://m.media-amazon.com/images/I/61V21huHmFL._AC_UL480_FMwebp_QL65_.jpg",
+      "price": 27,
+      "category": 2
+    },
+    {
+      "id": 10,
+      "name": "GEEK TEEZ Buffalo Bill's Body Lotion Men's Hoodie",
+      "imgUrl": "https://m.media-amazon.com/images/I/61G9xCxlm4L._AC_UL480_FMwebp_QL65_.jpg",
+      "price": 49.95,
+      "category": 2
+    },
+    {
+      "id": 11,
+      "name": "GEEK TEEZ I'll Unalive You Men's Hoodie",
+      "imgUrl": "https://m.media-amazon.com/images/I/61NMussJChL._AC_UL480_FMwebp_QL65_.jpg",
+      "price": 44.95,
+      "category": 2
+    },
+    {
+      "id": 12,
+      "name": "GEEK TEEZ Midtown School of Science & Technology Men's Hoodie",
+      "imgUrl": "https://m.media-amazon.com/images/I/61df0Bxjw9L._AC_UL480_FMwebp_QL65_.jpg",
+      "price": 44.95,
+      "category": 2
+    },
+    {
+      "id": 13,
+      "name": "GEEK TEEZ Captain Sparrow's Caribbean Spiced Rum Men's Hoodie",
+      "imgUrl": "https://m.media-amazon.com/images/I/61HaebsgEFL._AC_UL480_FMwebp_QL65_.jpg",
+      "price": 44.95,
+      "category": 2
+    },
+    {
+      "id": 14,
+      "name": "GEEK TEEZ Daft Pulp Men's Hoodie",
+      "imgUrl": "https://m.media-amazon.com/images/I/61HeVttzKmL._AC_UL480_FMwebp_QL65_.jpg",
+      "price": 44.95,
+      "category": 2
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "category": "Eletronics"
+    },
+    {
+      "id": 2,
+      "category": "Fashion"
+    },
+    {
+      "category": "Books",
+      "id": 3
+    },
+    {
+      "category": "Automotive",
+      "id": 4
+    },
+    {
+      "category": "Software",
+      "id": 5
+    },
+    {
+      "category": "Smart Home",
+      "id": 6
+    },
+    {
+      "category": "teste",
+      "id": 7
+    },
+    {
+      "category": "teste",
+      "id": 8
+    }
+  ]
+}
