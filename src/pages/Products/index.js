@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { AiFillDelete } from "react-icons/ai";
 import { Route, Link } from 'react-router-dom';
-import axios from 'axios';
+
+import Api from '../../api';
+
+import './styles.css'
 
 import NavBar from '../../NavBar';
 import Home from './Home';
@@ -9,21 +13,22 @@ import Category from './Category';
 export default class Products extends Component {
     constructor(props) {
         super(props)
+
         this.loadCategories = this.loadCategories.bind(this);
         this.handleNewCategory = this.handleNewCategory.bind(this);
+        this.renderCategories = this.renderCategories.bind(this);
+
         this.state = {
             categories: []
         }
     }
 
     loadCategories() {
-        axios
-            .get('http://localhost:3001/categories')
-            .then(res => {
-                this.setState({
-                    categories: res.data
-                });
+        Api.load().then(res => {
+            this.setState({
+                categories: res.data
             });
+        });
     }
 
     handleNewCategory(key) {
@@ -31,14 +36,31 @@ export default class Products extends Component {
         var inputCategory = this.refs.category.value;
 
         if (keyCode === 13) {
-            axios
-            .post('http://localhost:3001/categories', {
-                category: inputCategory
-            })
-            .then(res => {
+            Api.create(inputCategory).then(res => {
                 this.refs.category.value = ''
                 this.loadCategories()
             });
+        }
+    }
+
+    renderCategories(cat) {
+        return (
+            <li className="list-group-item categoryList" key={cat.id}>
+                <Link to={`/products/category/${cat.id}`} className="categoryItem">{cat.category}</Link>
+                <button className="btn btn-sm btn-outline-danger" onClick={() => this.removeCategory(cat)}>
+                    <AiFillDelete />
+                </button>
+            </li>
+        );
+    }
+
+    removeCategory(cat) {
+        const { id } = cat;
+        const confirm = window.confirm("Are you sure about this?");
+
+        if (confirm) {
+            console.log(confirm)
+            Api.delete(id).then((res) => this.loadCategories());
         }
     }
 
@@ -46,13 +68,6 @@ export default class Products extends Component {
         this.loadCategories();
     }
 
-    renderCategories(cat) {
-        return (
-            <li className="list-group-item" key={cat.id}>
-                <Link to={`/products/category/${cat.id}`}>{cat.category}</Link>
-            </li>
-        );
-    }
 
     render() {
         const { match } = this.props;

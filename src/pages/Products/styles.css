@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.categoryList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.categoryList .categoryItem  {
+    text-decoration: none;
+}
+
+.categoryList .btn {
+    font-size: 12px;
+}
