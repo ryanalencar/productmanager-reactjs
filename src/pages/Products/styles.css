@@ -8,7 +8,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .categoryList .categoryItem  {
@@ -17,4 +18,9 @@
 
 .categoryList .btn {
     font-size: 12px;
+}
+
+.form-control-sm {
+    /* width: 50px; */
+    /* background-color: red; */
 }

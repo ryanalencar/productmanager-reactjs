@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AiFillDelete } from "react-icons/ai";
+import { AiFillDelete, AiFillEdit, AiOutlineClose } from "react-icons/ai";
 import { Route, Link } from 'react-router-dom';
 
 import Api from '../../api';
@@ -16,10 +16,14 @@ export default class Products extends Component {
 
         this.loadCategories = this.loadCategories.bind(this);
         this.handleNewCategory = this.handleNewCategory.bind(this);
+        this.handleEditCategory = this.handleEditCategory.bind(this);
         this.renderCategories = this.renderCategories.bind(this);
+        this.editCategory = this.editCategory.bind(this);
+        this.cancelEditing = this.cancelEditing.bind(this);
 
         this.state = {
-            categories: []
+            categories: [],
+            editingCategory: '',
         }
     }
 
@@ -43,15 +47,17 @@ export default class Products extends Component {
         }
     }
 
-    renderCategories(cat) {
-        return (
-            <li className="list-group-item categoryList" key={cat.id}>
-                <Link to={`/products/category/${cat.id}`} className="categoryItem">{cat.category}</Link>
-                <button className="btn btn-sm btn-outline-danger" onClick={() => this.removeCategory(cat)}>
-                    <AiFillDelete />
-                </button>
-            </li>
-        );
+    handleEditCategory(key) {
+        const keyCode = key.keyCode;
+        const inputNewCategory = this.refs[`cat-${this.state.editingCategory}`].value;
+        const category = this.state.editingCategory;
+
+        if (keyCode === 13) {
+            Api.edit(category, inputNewCategory).then((res) => {
+                this.cancelEditing();
+                this.loadCategories();
+            });
+        }
     }
 
     removeCategory(cat) {
@@ -62,6 +68,57 @@ export default class Products extends Component {
             console.log(confirm)
             Api.delete(id).then((res) => this.loadCategories());
         }
+    }
+
+    editCategory(cat) {
+        this.setState({
+            editingCategory: cat.id
+        })
+    }
+
+    cancelEditing() {
+        this.setState({
+            editingCategory: ''
+        })
+    }
+
+    renderCategories(cat) {
+        return (
+            <li className="list-group-item categoryList" key={cat.id}>
+
+                {this.state.editingCategory === cat.id &&
+                    <div className="input-group">
+                        <input onKeyUp={this.handleEditCategory} className="form-control form-control-sm" defaultValue={cat.category} ref={`cat-${cat.id}`} />
+                        <div className="input-group-prepend">
+                            <button type="button" onClick={this.cancelEditing} className="btn btn-sm btn-dark" title="Cancel">
+                                <AiOutlineClose />
+                            </button>
+                        </div>
+                    </div>
+                }
+                {this.state.editingCategory !== cat.id &&
+                    <div>
+                        <div className="row">
+                            <div className="col-12 text-center">
+                                <Link to={`/products/category/${cat.id}`} className="categoryItem">{cat.category}</Link>
+                            </div>
+                            <div className="d-flex justify-content-center my-1">
+                                <div className="col-2 mr-1">
+                                    <button className="btn btn-sm btn-outline-dark" onClick={() => this.removeCategory(cat)}>
+                                        <AiFillDelete />
+                                    </button>
+                                </div>
+                                <div className="col-2">
+                                    <button className="btn btn-sm btn-outline-dark" onClick={() => this.editCategory(cat)}>
+                                        <AiFillEdit />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </li>
+        );
     }
 
     componentDidMount() {

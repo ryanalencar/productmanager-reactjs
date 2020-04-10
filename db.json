@@ -101,8 +101,8 @@
   ],
   "categories": [
     {
-      "id": 1,
-      "category": "Eletronics"
+      "category": "Eletronics",
+      "id": 1
     },
     {
       "id": 2,
@@ -123,10 +123,6 @@
     {
       "category": "Smart Home",
       "id": 6
-    },
-    {
-      "category": "teste",
-      "id": 7
     }
   ]
 }

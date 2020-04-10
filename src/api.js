@@ -9,7 +9,10 @@ const actions = {
     delete: (id) => api.delete(`categories/${id}`),
     create: (input) => api.post('categories', {
         category: input
-    })
+    }),
+    edit: (category, newCategory) => api.put(`categories/${category}`, { 
+        category: newCategory 
+    }),
 }
 
 export default actions;
