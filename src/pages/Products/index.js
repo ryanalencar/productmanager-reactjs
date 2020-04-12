@@ -9,6 +9,7 @@ import './styles.css'
 import NavBar from '../../NavBar';
 import Home from './Home';
 import Category from './Category';
+import NewProduct from './NewProduct';
 
 export default class Products extends Component {
     constructor(props) {
@@ -135,7 +136,8 @@ export default class Products extends Component {
                 <NavBar />
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-2">
+                        <div className="col-md-2 mt-3">
+                            <Link className="btn btn-primary btn-block" to="/products/new">New Product</Link>
                             <div className="form-group my-3">
                                 <input
                                     onKeyUp={this.handleNewCategory}
@@ -154,6 +156,9 @@ export default class Products extends Component {
                             <div className="container text-center">
                                 <h1>Products</h1>
                                 <Route path={match.url} component={Home} exact />
+                                <Route path={`${match.url}/new`} render={(props) => {
+                                    return <NewProduct {...props} categories={categories} />
+                                }} exact />
                                 <Route path={match.url + '/category/:catId'} component={Category} />
                             </div>
                         </div>
