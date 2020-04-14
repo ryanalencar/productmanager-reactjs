@@ -10,9 +10,12 @@ const actions = {
     create: (input) => api.post('categories', {
         category: input
     }),
+
     edit: (category, newCategory) => api.put(`categories/${category}`, { 
         category: newCategory 
     }),
+
+    createProduct: (product) => api.post('products', product)
 }
 
 export default actions;

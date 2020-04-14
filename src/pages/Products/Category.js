@@ -4,7 +4,9 @@ import axios from 'axios';
 export default class Category extends Component {
     constructor(props) {
         super(props);
+
         this.loadData = this.loadData.bind(this);
+        
         this.state = {
             products: [],
             category: ''
